@@ -24,6 +24,10 @@ const proyectoSchema = new mongoose.Schema(
             type: String,
             require: true
         }
+    },
+    {
+      timestamps: true,
+      versionKey: false,
     }
 );
 

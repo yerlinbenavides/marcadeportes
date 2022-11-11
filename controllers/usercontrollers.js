@@ -39,3 +39,13 @@ export const updateoneuser = (req, res) => {
     .then((data) => res.json(data))
     .catch((error) => res.json({massage:error}));
 };
+
+// borrar usuario
+
+export const deluser  = (req, res) => {
+  const { id } = req.params;
+  user
+    .deleteOne({ _id: id})
+    .then((data) => res.json(data))
+    .catch((error) => res.json({massage:error}));
+};
