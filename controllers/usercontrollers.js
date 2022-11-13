@@ -1,51 +1,54 @@
-import {user} from '.. /models/user.js';
+import { usuario } from '../models/user.js';
 
-//guardar usuario en mongodb
+// Registrar un usuario en la abse de datos
+export const regusuario = (req, res) => {
+    const user = usuario(req.body);
+    user
+      .save()
+      .then((data) => res.json(data))
+      .catch((error) => res.json({ message: error }));
+  };
 
-export const reguser = (req, res) => {
-  const user1 = user(req.body);
-  user1
-    .save()
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ massage: error }));
-};
+  // Mostrar información de los usuarios
 
-// mostrar informacion 
-export const mosuser = (req, res) =>{
-
-  user
+  export const showuser = (req,res) => {
+ 
+    usuario
     .find()
-    .then((data) => res.json(data))
-    .catch((error) => res.json({massage:error}));
+    .then((data)=> res.json(data))
+    .catch((error)=> res.json({message:error})); 
 }
 
-//me muestra la informacion de un ususario
+//Muestra
 
-export const showoneuser = (req, res) => {
-  const { id }= req.params;
-  user
+export const shuserone = (req, res) => {
+  const { id } = req.params;
+  usuario
     .findById(id)
     .then((data) => res.json(data))
-    .catch((error) => res.json({massage:error}));
+    .catch((error) => res.json({ message: error }));
 };
 
-// actualizar un usuario
+//Borramos un usuario
 
-export const updateoneuser = (req, res) => {
-  const { id }= req.params;
-  const { nomuser, password, correo } = req.body;
-  user
-    .updateOne({_id: id}, {$set: {nomuser, password, correo}})
-    .then((data) => res.json(data))
-    .catch((error) => res.json({massage:error}));
-};
-
-// borrar usuario
-
-export const deluser  = (req, res) => {
+export const deluser =  (req, res) => {
   const { id } = req.params;
-  user
-    .deleteOne({ _id: id})
+  usuario
+    .deleteOne({ _id: id })
     .then((data) => res.json(data))
-    .catch((error) => res.json({massage:error}));
+    .catch((error) => res.json({ message: error }));
 };
+
+//Actualizar un usuario
+
+export const upuser =  (req, res) => {
+  const { id } = req.params;
+  const { nomuser , password, correo } = req.body;
+  usuario
+    .updateOne({ _id: id }, { $set: { nomuser, password, correo } })
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+};
+
+
+export default regusuario;

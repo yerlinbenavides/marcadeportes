@@ -1,4 +1,4 @@
-import { proyecto } from '.. /models/proyecto.js';
+import { proyecto } from '../models/proyecto.js';
 
 //Registrar un proyecto deportivo
 

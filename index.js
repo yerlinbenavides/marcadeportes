@@ -10,6 +10,6 @@ app.use(express.json())
 app.use('/', router)
 //app.use('/usuarios',blogRoutes)
 
-app.listen(5000, ()=> {
-    console.log('Servidor Corriendo en http://localhost:5000/')
+app.listen(3000, () => {
+    console.log('Servidor Corriendo en http://localhost:3000/')
 })
