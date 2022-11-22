@@ -7,17 +7,17 @@ export const regusuario = (req, res) => {
       .save()
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }));
-  };
+};
 
   // Mostrar información de los usuarios
 
-  export const showuser = (req,res) => {
+  export const showuser = (req, res) => {
  
     usuario
     .find()
     .then((data)=> res.json(data))
     .catch((error)=> res.json({message:error})); 
-}
+};
 
 //Muestra
 
